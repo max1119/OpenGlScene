@@ -1,0 +1,8 @@
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\bin\Debug\OpenGlScene.exe.config
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\obj\Debug\OpenGlScene.csprojResolveAssemblyReference.cache
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\bin\Debug\OpenGlScene.exe
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\bin\Debug\OpenGlScene.pdb
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\bin\Debug\OpenGL.dll
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\bin\Debug\Tao.FreeGlut.dll
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\obj\Debug\OpenGlScene.exe
+D:\4 курс\Комп Графика\OpenGlScene\OpenGlScene\obj\Debug\OpenGlScene.pdb
