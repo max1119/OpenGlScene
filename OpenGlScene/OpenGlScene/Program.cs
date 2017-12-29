@@ -34,9 +34,9 @@ namespace OpenGlScene
             Data.program["projection_matrix"].SetValue(
                 Matrix4.CreatePerspectiveFieldOfView(0.45f, (float)Data.width / 
                 Data.height, 0.1f, 1000f));
-            Data.program["view_matrix"].SetValue(Matrix4.LookAt(new Vector3(0, 0, 10),
-                Vector3.Zero, new Vector3(0, 1, 0)));
-            Data.program["light_direction"].SetValue(new Vector3(0, 0, 1));
+            Data.program["view_matrix"].SetValue(Matrix4.LookAt(Data.cameraPos,
+                Data.cameraFront, Data.cameraUp));
+            Data.program["light_direction"].SetValue(Data.lightDir);
             Data.program["enable_lighting"].SetValue(Data.lighting);
 
             Data.objects.Add(new Pyramid());
@@ -44,18 +44,27 @@ namespace OpenGlScene
             Data.objects.Add(new Cube(true));
             Data.objects.Add(new Plane(
                 new Vector3(-2, 20, -40),
-                new Vector3(10, 20, -10),
-                new Vector3(10, -0.5f, -5),
+                new Vector3(100, 20, -10),
+                new Vector3(100, -0.5f, -5),
                 new Vector3(-2, -0.5f, -35),
-                new Vector3(0.6f, 0.6f, 0.6f)
+                new Vector3(0.6f, 0.75f, 0.6f)
             ));
 
             Data.objects.Add(new Plane(
               new Vector3(-2, 20, -40),
-              new Vector3(-10, 20, -10),
-              new Vector3(-10, -0.5f, -5),
+              new Vector3(-100, 20, -10),
+              new Vector3(-100, -0.5f, -5),
               new Vector3(-2, -0.5f, -35),
-              new Vector3(0.2f, 0.2f, 0.2f)
+              new Vector3(0.2f, 0.2f, 0.64f)
+          ));
+
+
+            Data.objects.Add(new Plane(
+              new Vector3(-200, -1.0f, 1000),
+              new Vector3(-200, -1.0f, -1000),
+              new Vector3(200, -1.0f, -1000),
+              new Vector3(200, -1.0f, 1000),
+              new Vector3(0.2f, 0.85f, 0.64f)
           ));
 
             if (Data.isTimeRotate)

@@ -47,6 +47,10 @@ namespace OpenGlScene
             Gl.Clear(ClearBufferMask.ColorBufferBit | ClearBufferMask.DepthBufferBit);
             Gl.UseProgram(Data.program);
 
+            //Vector3 cameraLook = Data.cameraPos + Data.cameraFront;
+            Data.program["view_matrix"].SetValue(Matrix4.LookAt(Data.cameraPos,
+                Data.cameraFront, Data.cameraUp));
+            Data.program["light_direction"].SetValue(Data.lightDir);
             Data.program["enable_lighting"].SetValue(Data.lighting);
             foreach (var ob in Data.objects)
                 ob.Draw();
@@ -70,6 +74,16 @@ namespace OpenGlScene
             else if (key == 's') Data.down = true;
             else if (key == 'd') Data.right = true;
             else if (key == 'a') Data.left = true;
+            else if (key == '-') Data.cameraPos.z += 0.1f;
+            else if (key == '+' || key == '=') Data.cameraPos.z -= 0.1f;
+            else if (key == '4') Data.cameraPos.x -= 0.1f;
+            else if (key == '6') Data.cameraPos.x += 0.1f;
+            else if (key == '7') Data.lightDir.x += 0.5f;
+            else if (key == '8') Data.lightDir.y += 0.5f;
+            else if (key == '9') Data.lightDir.z -= 0.5f;
+            else if (key == '1') Data.lightDir.x -= 0.5f;
+            else if (key == '2') Data.lightDir.y -= 0.5f;
+            else if (key == '3') Data.lightDir.z -= 0.5f;
             else if (key == 27) Glut.glutLeaveMainLoop();
         }
 
@@ -82,6 +96,7 @@ namespace OpenGlScene
             else if (key == ' ') Data.isTimeRotate = !Data.isTimeRotate;
             else if (key == 'l') Data.lighting = !Data.lighting;
         }
+
 
     }
 }
